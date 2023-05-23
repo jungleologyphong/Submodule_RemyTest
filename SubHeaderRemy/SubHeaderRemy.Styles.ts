@@ -6,34 +6,22 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: wp('100%'),
-    height: hp('15%'),
-    flexDirection: 'column',
-  },
-  coverLogo: {
-    backgroundColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: hp('8%'),
-  },
-  logo: {
-    width: wp('8%'),
-    height: hp('8%'),
-    resizeMode: 'contain',
+    height: hp('6%'),
   },
   itemMenu: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#E2E2E2',
     flexDirection: 'row',
-    height: hp('8%'),
+    height: hp('6%'),
     width: wp('100%'),
     alignItems: 'center',
-    justifyContent: 'center',
   },
   textItem: {
     fontSize: hp('1.85%'),
     minWidth: hp('5%'),
     maxWidth: hp('25%'),
-    marginLeft: hp('2.75%'),
-    marginHorizontal: hp('8%'),
+    marginLeft: hp('7.48%'),
+    marginHorizontal: hp('1%'),
   },
 });

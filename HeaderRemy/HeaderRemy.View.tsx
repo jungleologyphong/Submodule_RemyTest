@@ -1,15 +1,8 @@
 import React from 'react';
-import {Text, TextProps, View, Pressable} from 'react-native';
+import {Text, TextProps, View, Pressable, Button} from 'react-native';
 import {Image} from 'react-native-animatable';
 import {styles} from './HeaderRemy.Styles';
-import {TextView} from '~components';
-import {
-  heightPercentageToDP,
-  widthPercentageToDP,
-} from 'react-native-responsive-screen';
 import {HeaderRemyLogics} from './HeaderRemy.Logics';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-
 export interface HeaderProps extends TextProps {
   itemFirstMenu: string;
   itemOthersMenu: string;
@@ -18,38 +11,25 @@ export interface HeaderProps extends TextProps {
 
 export const HeaderRemy: React.FC<any> = props => {
   const {sourceImg, itemFirstMenu, ...itemOthersMenu} = props;
-  const {headersItemMenu} = HeaderRemyLogics({
+  const {headersItemMenu, navigation} = HeaderRemyLogics({
     itemFirstMenu,
     ...itemOthersMenu,
   });
+
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          backgroundColor: 'black',
-          width: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: heightPercentageToDP('8%'),
-        }}>
+      <View style={styles.coverLogo}>
         <Image source={sourceImg} style={styles.logo} />
       </View>
-      <View
-        style={{
-          backgroundColor: '#FFFFFF',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexDirection: 'row',
-          paddingHorizontal: widthPercentageToDP('3%'),
-          height: heightPercentageToDP('8%'),
-          width: widthPercentageToDP('100%'),
-        }}>
+      <View style={styles.itemMenu}>
         {headersItemMenu.map((item, index) => {
           return (
-            <Pressable
-              onPress={() => console.log(item.itemMenu)}
-              style={{padding: 10}}>
-              <Text style={{fontSize: heightPercentageToDP('1.85%')}}>
+            <Pressable onPress={() => navigation.navigate(item.itemMenu)}>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                key={index}
+                style={styles.textItem}>
                 {item.itemMenu}
               </Text>
             </Pressable>

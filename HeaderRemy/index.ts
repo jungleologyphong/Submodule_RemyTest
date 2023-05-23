@@ -1,1 +1,1 @@
-export * from './HeaderRemy.View';
+export {HeaderRemy} from './HeaderRemy.View';
